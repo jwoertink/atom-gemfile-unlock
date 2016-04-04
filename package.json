@@ -1,14 +1,14 @@
 {
   "name": "atom-gemfile-unlock",
   "main": "./lib/atom-gemfile-unlock",
-  "version": "0.0.0",
-  "description": "A short description of your package",
+  "version": "0.1.0",
+  "description": "Unpack gems from a gemfile in your ruby project into atom",
   "keywords": [
   ],
   "activationCommands": {
     "atom-workspace": "atom-gemfile-unlock:unpack"
   },
-  "repository": "https://github.com/atom/atom-gemfile-unlock",
+  "repository": "https://github.com/jwoertink/atom-gemfile-unlock",
   "license": "MIT",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"

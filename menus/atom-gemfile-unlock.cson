@@ -1,19 +1,12 @@
 # See https://atom.io/docs/latest/hacking-atom-package-word-count#menus for more details
-'context-menu':
-  'atom-text-editor': [
-    {
-      'label': 'Toggle atom-gemfile-unlock'
-      'command': 'atom-gemfile-unlock:unpack'
-    }
-  ]
 'menu': [
   {
     'label': 'Packages'
     'submenu': [
-      'label': 'atom-gemfile-unlock'
+      'label': 'Gemfile Unlock'
       'submenu': [
         {
-          'label': 'Toggle'
+          'label': 'Unpack'
           'command': 'atom-gemfile-unlock:unpack'
         }
       ]
