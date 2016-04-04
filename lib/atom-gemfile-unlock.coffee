@@ -14,7 +14,7 @@ module.exports = AtomGemfileUnlock =
     @subscriptions = new CompositeDisposable
 
     # Register command that toggles this view
-    @subscriptions.add atom.commands.add 'atom-workspace', 'atom-gemfile-unlock:toggle': => @toggle()
+    @subscriptions.add atom.commands.add 'atom-workspace', 'atom-gemfile-unlock:unpack': => @unpack()
 
   deactivate: ->
     @modalPanel.destroy()
@@ -24,7 +24,7 @@ module.exports = AtomGemfileUnlock =
   serialize: ->
     atomGemfileUnlockViewState: @atomGemfileUnlockView.serialize()
 
-  toggle: ->
+  unpack: ->
     console.log 'AtomGemfileUnlock was toggled!'
 
     if @modalPanel.isVisible()

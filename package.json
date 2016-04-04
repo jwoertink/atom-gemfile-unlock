@@ -6,7 +6,7 @@
   "keywords": [
   ],
   "activationCommands": {
-    "atom-workspace": "atom-gemfile-unlock:toggle"
+    "atom-workspace": "atom-gemfile-unlock:unpack"
   },
   "repository": "https://github.com/atom/atom-gemfile-unlock",
   "license": "MIT",

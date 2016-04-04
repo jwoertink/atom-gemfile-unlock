@@ -3,7 +3,7 @@
   'atom-text-editor': [
     {
       'label': 'Toggle atom-gemfile-unlock'
-      'command': 'atom-gemfile-unlock:toggle'
+      'command': 'atom-gemfile-unlock:unpack'
     }
   ]
 'menu': [
@@ -14,7 +14,7 @@
       'submenu': [
         {
           'label': 'Toggle'
-          'command': 'atom-gemfile-unlock:toggle'
+          'command': 'atom-gemfile-unlock:unpack'
         }
       ]
     ]
