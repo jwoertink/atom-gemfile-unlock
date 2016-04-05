@@ -9,7 +9,7 @@ module.exports = AtomGemfileUnlock =
     @gemfile = new Gemfile
     @subscriptions = new CompositeDisposable
 
-    # Register command that toggles this view
+    # Register command
     @subscriptions.add atom.commands.add 'atom-workspace', 'atom-gemfile-unlock:unpack': => @unpack()
 
   deactivate: ->
@@ -21,6 +21,7 @@ module.exports = AtomGemfileUnlock =
 
   unpack: ->
     if @gemfile.lockExists()
-      console.log 'got a lock file!'
+      data = @gemfile.parse()
+      console.log 'got a lock file!', data
     else
       console.log 'no lock file found'
