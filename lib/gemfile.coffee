@@ -3,6 +3,7 @@ module.exports =
 class Gemfile
   @WHITESPACE = /^(\s*)/
   @GEMFILE_KEY_VALUE = /^\s*([^:(]*)\s*\:*\s*(.*)/
+
   constructor: ()->
     @projectPath = atom.project.getPaths()[0]
     @lockFilePath = [@projectPath, 'Gemfile.lock'].join('/')
@@ -24,21 +25,17 @@ class Gemfile
         while stack[stackIndex] and whitespace <= stack[stackIndex].depth
           stack.pop()
           stackIndex--
-      # Make note of line's whitespace depth
       previousWhitespace = whitespace
-      # Handle new key/value leaf
       parts = Gemfile.GEMFILE_KEY_VALUE.exec(line)
       key = parts[1].trim()
       value = parts[2] or ''
       if key?
-        # Handle path traversal
         level = lockFile
         stackIndex = 0
         while stackIndex < stack.length
           if level[stack[stackIndex].key]
             level = level[stack[stackIndex].key]
           stackIndex++
-        # Handle data type inference
         data = {}
         if value.indexOf('/') > -1
           data.path = value
@@ -50,9 +47,7 @@ class Gemfile
             data.version = value.substring(1, value.length - 1)
         else if /\b[0-9a-f]{7,40}\b/.test(value)
           data.sha = value
-        # Set key at current level
         level[key] = data
-        # Push key on stack
         stack.push(key: key, depth: whitespace)
     keys = Object.keys(lockFile)
     hasGemKey = keys.indexOf('GEM') > -1

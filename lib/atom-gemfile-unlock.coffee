@@ -1,5 +1,6 @@
 {CompositeDisposable} = require 'atom'
 Gemfile = require './gemfile'
+Project = require './project'
 
 module.exports = AtomGemfileUnlock =
   modalPanel: null
@@ -22,6 +23,7 @@ module.exports = AtomGemfileUnlock =
   unpack: ->
     if @gemfile.lockExists()
       data = @gemfile.parse()
-      console.log 'got a lock file!', data
+      project = new Project(data)
+      project.load()
     else
       console.log 'no lock file found'
